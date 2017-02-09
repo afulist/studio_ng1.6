@@ -1,3 +1,5 @@
-// angular
-//   .module('app')
-//   .constant('test', test);
+/* global firebase:false */
+angular
+  .module('app')
+  .constant('firebase', firebase);
+
