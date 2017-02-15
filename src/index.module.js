@@ -1,5 +1,13 @@
 angular
   .module('app', [
+    // 'ngCookies',
+    // 'ngSanitize',
+    // 'ngTouch'
+    'ngAnimate',
+    'ngMessages',
+    'ngAria',
     'ui.router',
-    'ngMaterial'
+    'ngMaterial',
+    'ng-fastclick',
+    'ezfb'
   ]);
