@@ -9,5 +9,7 @@ angular
     'ui.router',
     'ngMaterial',
     'ng-fastclick',
-    'ezfb'
+    'ezfb',
+    'lib',
+    'techs'
   ]);
