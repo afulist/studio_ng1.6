@@ -1,5 +1,5 @@
 angular
-  .module('app')
+  .module('techs')
   .component('fountainTechs', {
     templateUrl: 'app/techs/techs.html',
     controller: TechsController
