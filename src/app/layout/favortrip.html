@@ -1,0 +1,24 @@
+<!-- navi bar -->
+<acme-navbar logo="LOGO" title-m="我的收藏" opt-left-name-m="返回" opt-right-name-m="功能" prev-state="myfavor"></acme-navbar>
+
+<!-- main content -->
+<div layout="row" flex class="main-container" style="overflow:auto;position:relative;">
+	<!-- mobile sideNav -->
+	<favortrip-left-m layout="column" hide-gt-sm></favortrip-left-m>
+	<!-- content -->
+	<md-content layout="column" id="content" flex class="md-padding all-bg">
+	  <div layout="row" id="top">
+	    <!-- desktop side -->
+	    <favortrip-left flex="20" hide-sm hide-xs ng-hide="main.hideLeft"  class="content-col"></favortrip-left>
+	    <!-- desktop & mobile content -->
+	    <favortrip-center flex></favortrip-center>
+	    <!-- desktop side -->
+	    <favortrip-right flex="25" hide-sm hide-xs class="content-col"></favortrip-right>
+	  </div>
+	</md-content>
+	<!-- mobile sideNav -->
+	<favortrip-right-m layout="column" hide-gt-sm></favortrip-right-m>
+</div>
+
+
+

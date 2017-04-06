@@ -1,0 +1,94 @@
+<!-- desktop -->
+<md-toolbar layout="row" hide-sm hide-xs>
+  <div class="md-toolbar-tools">
+    <a ui-sref="home">
+      <h1 layout-align-gt-sm="center">
+        {{ $ctrl.logo }}
+      </h1>
+    </a>
+    <!-- search location selector -->
+    <md-whiteframe class="md-whiteframe-2dp search-select" layout layout-align="center center">
+      <md-input-container>
+        <md-select class="md-search-loc" ng-model="$ctrl.selectedLoc" aria-label="search-loc" ng-model-options="{trackBy: '$value.id'}" placeholder=""><!-- 搜尋地區 -->
+          <md-option ng-value="loc.name" ng-repeat="loc in $ctrl.locations">
+            <span>{{loc.name}}</span>
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </md-whiteframe>
+    <!-- search keyword autocomplete -->
+    <form ng-submit="$ctrl.search()" class="search-autocomplete">
+      <md-autocomplete
+          width="250px"
+          placeholder="行程名稱、城市的關鍵字"
+          md-min-length="0"
+          md-autoselect="true"
+          md-search-text="$ctrl.searchText"
+          md-selected-item="$ctrl.selectedItem"
+          md-selected-item-change="$ctrl.selectedItemChange(item)"
+          md-items="item in $ctrl.querySuggsetion($ctrl.searchText)"
+          md-item-text="item.display">
+        <md-item-template>
+          <span ng-if="item.type==='currentText'" tabIndex="-1"  style="font-size: 19px;">
+            <md-icon >search</md-icon>
+            {{$ctrl.selectedLoc.name}}地區: <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{$ctrl.searchText}}</span>
+          </span>
+          <span ng-if="item.type!=='currentText'" md-highlight-text="$ctrl.searchText" md-highlight-flags="^i" style="font-size:19px;">{{item.display}}
+          </span>
+        </md-item-template>
+      </md-autocomplete>
+    </form>
+
+    <span flex=""></span>
+    <a ui-sref="myplan">
+      <md-button md-no-ink class="md-raised menuBtn">
+        <md-icon class="menuBtn-icon">assignment_turned_in</md-icon>
+        <span>我的規劃&nbsp;</span>
+      </md-button>
+    </a>
+    <a ui-sref="myfavor">
+      <md-button md-no-ink class="md-raised menuBtn">
+        <md-icon class="menuBtn-icon">favorite</md-icon>
+        <span>我的收藏&nbsp;</span>
+      </md-button>
+    </a>
+    <a ui-sref="more({user:123})">
+      <md-button md-no-ink class="md-raised menuBtn">
+        <md-icon class="menuBtn-icon">more_vert</md-icon>
+        <span>更多</span>
+      </md-button>
+    </a>
+    <a ui-sref="myfavor">
+      <md-button md-no-ink class="md-raised md-hue-1 md-accent menuBtn">
+        <md-icon class="menuBtn-icon">face</md-icon>
+        <span>登入</span>
+      </md-button>
+    </a>
+  </div>
+</md-toolbar>
+
+
+<!-- mobile: button desc changed by routing -->
+<md-toolbar layout="row" layout-align="space-between center" hide-gt-sm>
+  <div>
+    <md-button ng-hide="$ctrl.optLeftNameM==='返回'" ng-disabled="$ctrl.lockClick||$ctrl.optLeftNameM===''" class="md-primary menuBtn-m" ng-click="$ctrl.toggleSidenav('left')" aria-label="Toggle Side">
+      <span style="color:rgb(255,255,255);">{{ $ctrl.optLeftNameM }}</span>
+    </md-button>
+    <md-button ng-show="$ctrl.optLeftNameM==='返回'" ng-disabled="$ctrl.lockClick||$ctrl.optLeftNameM===''" class="md-primary menuBtn-m" ng-click="$ctrl.navBack($ctrl.prevState)" aria-label="Toggle Side">
+      <md-icon class="menuBtn-icon" style="color:rgb(255,255,255);margin-left: -25px;">arrow_back</md-icon>
+    </md-button>
+  </div>
+  <div>
+    <md-button ng-disabled="$ctrl.lockClick" class="md-primary menuBtn menuFunction" ng-click="$ctrl.showBottomSheet()"  aria-label="Menu Function">
+       <span style="color:rgb(255,255,255);">{{ $ctrl.titleM }}</span>
+      <md-icon class="menuFunctionIcon">
+        expand_more
+      </md-icon>
+    </md-button>
+  </div>
+  <div>
+    <md-button ng-disabled="$ctrl.lockClick||$ctrl.optRightNameM===''" class="md-primary menuBtn-m" ng-click="$ctrl.toggleSidenav('right')"  aria-label="Toggle Side">
+      <span style="color:rgb(255,255,255);">{{ $ctrl.optRightNameM }}</span>
+    </md-button>
+  </div>
+</md-toolbar>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="app">
   <head>
     <base href="/">
     <meta charset="utf-8">
@@ -34,19 +34,8 @@
     </script>
   </head>
 
-
-  <body ng-app="app">
-    <!-- @if ENV='dev' -->
-    <span style="display: none;">dev</span>
-    <!-- @endif -->
-    <!-- @if ENV='stage' !>
-    <span style="display: none;">stage</span>
-    <!-- @endif -->
-    <!-- @if ENV='prod' !>
-    <span style="display: none;">prod</span>
-    <!-- @endif -->
-    <ui-view></ui-view>
-  </body>
+  <!-- view content -->
+  <body ui-view layout="column"></body>
 
   <!-- build:js({.tmp,src}) scripts/vendor.js -->
   <!-- bower:js -->

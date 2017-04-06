@@ -1,0 +1,24 @@
+<!-- navi bar -->
+<acme-navbar logo="LOGO" title-m="我的規劃" opt-left-name-m="返回" opt-right-name-m="功能" prev-state="myplan"></acme-navbar>
+
+<!-- main content -->
+<div layout="row" flex class="main-container" style="overflow:auto;position:relative;">
+	<!-- mobile sideNav -->
+	<plantrip-left-m layout="column" hide-gt-sm></plantrip-left-m>
+	<!-- content -->
+	<md-content layout="column" id="content" flex class="md-padding all-bg">
+	  <div layout="row" id="top">
+	    <!-- desktop side -->
+	    <plantrip-left flex="20" hide-sm hide-xs ng-hide="main.hideLeft"  class="content-col"></plantrip-left>
+	    <!-- desktop & mobile content -->
+	    <plantrip-center flex></plantrip-center>
+	    <!-- desktop side -->
+	    <plantrip-right flex="25" hide-sm hide-xs class="content-col"></plantrip-right>
+	  </div>
+	</md-content>
+	<!-- mobile sideNav -->
+	<plantrip-right-m layout="column" hide-gt-sm></plantrip-right-m>
+</div>
+
+
+

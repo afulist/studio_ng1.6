@@ -11,5 +11,8 @@ angular
     'ng-fastclick',
     'ezfb',
     'lib',
+    'navbar',
+    'layout',
+    'page',
     'techs'
   ]);

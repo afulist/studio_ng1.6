@@ -1,0 +1,142 @@
+/* NavTop Button */
+a.bs-link {
+  color: black !important;
+}
+
+.menuBtn {
+  height: 38px;
+  min-width: 88px;
+  /*width: 105px;*/ /*auto size*/
+  font-size: 19px;
+}
+
+.menuBtn-icon {
+  margin-top: -2px;
+}
+
+.menuBtn-m {
+  height: 38px;
+  min-width: 0px; /* need to specify width in style */
+  font-size: 19px;
+  width: 70px;
+}
+
+.menuFunction {
+  margin-left: -1px;
+  font-size: 25px;
+  width: 100%;
+}
+
+.menuFunctionIcon {
+  color: rgba(255,255,255,0.87) !important;
+  margin-right: -4px;
+  margin-left: -4px;
+  margin-top: -5px;
+}
+
+.md-inline-list-icon-label {
+  font-size: 19px;
+  display: inline-block;
+  padding-left: 13px;
+  padding-right: 10px;
+  margin-top: -12px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+/* search component: select function */
+.search-select {
+  margin-left: 35px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 3px;
+  height: 40px;
+  /*width: 120px;*/ /*tune for item*/ /*disable to fit select value width*/
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  font-size: 19px;
+  background-color: rgb(250,250,250);
+}
+
+md-input-container label {
+  display: none;
+}
+
+md-select-value {
+    border-bottom-color: rgba(0, 0, 0, 0) !important;
+    color: rgba(0, 0, 0, 1) !important;
+}
+
+.md-select-value .md-select-icon {
+    margin-right: 4px !important;
+    margin-left: 0px !important;
+}
+
+default-theme, md-select-menu md-option {
+    color: rgb(63, 81, 181) !important;
+}
+
+default-theme, md-select-menu md-option:hover {
+    background-color: rgba(63, 81, 181, 0.2) !important;
+}
+
+default-theme, md-select-menu md-option ._md-text {
+    color: rgba(0, 0, 0, 0.87) !important;
+}
+
+default-theme, md-select-menu md-option[selected]  ._md-text {
+    color: rgb(63, 81, 181) !important;
+}
+
+/* search component: autocomplete function */
+.search-autocomplete {
+  margin-left: -22px;
+  padding: 20px;
+}
+
+md-autocomplete {
+  width: 255px;
+}
+
+md-autocomplete input:not(.md-input) {
+    font-size: 19px;
+/*    line-height: 40px;
+    height: 40px;*/
+}
+
+.highlight {
+  color: #4527A0 !important;
+}
+
+.md-autocomplete-suggestions-container.md-default-theme, .md-autocomplete-suggestions-container li:hover, .md-autocomplete-suggestions-container.md-default-theme, .md-autocomplete-suggestions-container li.selected {
+    background: rgba(63, 81, 181, 0.2) !important;
+}
+
+/* fix navSide slow performance in mobile */
+/*.md-sidenav-backdrop,
+.md-sidenav-backdrop.md-opaque.ng-leave {
+  transition: none !important;
+}
+
+.md-bottom-sheet-backdrop,
+.md-bottom-sheet-backdrop.md-opaque.ng-leave {
+  transition: none !important;
+}*/
+
+ /*delete and set transition to 2x in angular-material.css */
+/*md-sidenav.md-closed-add,
+md-sidenav.md-closed-remove,
+md-sidenav.md-closed-add.md-closed-add-active,
+md-sidenav.md-closed-remove.md-closed-remove-active,
+md-sidenav.md-locked-open-remove-active,
+md-sidenav.md-closed.md-locked-open-add-active {
+  -webkit-transition: 0.15s ease-in all !important;
+  transition: 0.15s ease-in all !important;
+}*/
+
+/* @if ENV='dev' */
+/* @endif */
+/* @if ENV='stage' */
+/* @endif */
+/* @if ENV='prod' */
+/* @endif */

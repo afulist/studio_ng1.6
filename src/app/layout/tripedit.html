@@ -1,0 +1,24 @@
+<!-- navi bar -->
+<acme-navbar logo="LOGO" title-m="我的規劃" opt-left-name-m="返回" opt-right-name-m="功能" prev-state="plantrip"></acme-navbar>
+
+<!-- main content -->
+<div layout="row" flex class="main-container" style="overflow:auto;position:relative;">
+	<!-- mobile sideNav -->
+	<tripedit-left-m layout="column" hide-gt-sm></tripedit-left-m>
+	<!-- content -->
+	<md-content layout="column" id="content" flex class="md-padding all-bg">
+	  <div layout="row" id="top">
+	    <!-- desktop side -->
+	    <tripedit-left flex="20" hide-sm hide-xs ng-hide="main.hideLeft"  class="content-col"></tripedit-left>
+	    <!-- desktop & mobile content -->
+	    <tripedit-center flex></tripedit-center>
+	    <!-- desktop side -->
+	    <tripedit-right flex="25" hide-sm hide-xs class="content-col"></tripedit-right>
+	  </div>
+	</md-content>
+	<!-- mobile sideNav -->
+	<tripedit-right-m layout="column" hide-gt-sm></tripedit-right-m>
+</div>
+
+
+

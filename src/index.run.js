@@ -4,6 +4,8 @@ angular
 
 /** @ngInject */
 function runBlock($log, $trace, $transitions) {
+  // $templateCache is set by gulp
+
   // ===env===
   // console log config
   /* @if ENV='dev' */
@@ -19,18 +21,16 @@ function runBlock($log, $trace, $transitions) {
   $trace.disable('TRANSITION');
   /* @endif */
 
-  // demo ui-router transitions
-  $transitions.onStart({to: 'app'}, function (trans) {
+  // demo ui-router transitions // to: 'home'
+  $transitions.onStart({}, function (trans) {
     // get service
     var routerTran = trans.injector().get('routerTran');
-    // on start execution
-    routerTran.transitionStart();
-    if (trans === null) {
-      // go to state
-      return trans.router.stateService.target('login');
-    }
-    // on finish execution
-    trans.promise.finally(routerTran.transitionEnd);
+    routerTran.transitionStart(); // on start execution
+    // if (false) {
+    //   // go to state
+    //   return trans.router.stateService.target('login');
+    // }
+    trans.promise.finally(routerTran.transitionEnd); // on finish execution
   });
 }
 

@@ -1,0 +1,24 @@
+<!-- navi bar -->
+<acme-navbar logo="LOGO" title-m="首頁" opt-left-name-m="地區" opt-right-name-m="粉絲團" prev-state=""></acme-navbar>
+
+<!-- main content -->
+<div layout="row" flex class="main-container" style="overflow:auto;position:relative;">
+	<!-- mobile sideNav -->
+	<home-left-m layout="column" hide-gt-sm></home-left-m>
+	<!-- content -->
+	<md-content layout="column" id="content" flex class="md-padding all-bg">
+	  <div layout="row" id="top">
+	    <!-- desktop side -->
+	    <home-left flex="20" hide-sm hide-xs ng-hide="main.hideLeft"  class="content-col"></home-left>
+	    <!-- desktop & mobile content -->
+	    <home-center flex></home-center>
+	    <!-- desktop side -->
+	    <home-right flex="25" hide-sm hide-xs class="content-col"></home-right>
+	  </div>
+	</md-content>
+	<!-- mobile sideNav -->
+	<home-right-m layout="column" hide-gt-sm></home-right-m>
+</div>
+
+
+
