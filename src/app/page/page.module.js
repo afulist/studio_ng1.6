@@ -1,4 +1,13 @@
 angular
   .module('page', [
-    'home'
+    'home',
+    'homeTrip',
+    'search',
+    'result',
+    'myplan',
+    'planTrip',
+    'tripEdit',
+    'myfavor',
+    'favorTrip',
+    'more'
   ]);
