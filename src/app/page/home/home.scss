@@ -9,6 +9,10 @@
 	color: rgb(63, 81, 181);
 }
 
+md-list-item.md-no-proxy.md-button, md-list-item .md-no-style.md-button {
+	border-radius: 3px !important;
+}
+
 .loc-list-item-text {
 	display: inline-block;
 	text-overflow: ellipsis;
@@ -83,6 +87,10 @@ a.md-button.md-default-theme:not([disabled]):hover, a.md-button:not([disabled]):
 	margin: 0px 0;
 	margin-top: -4px;
 	margin-right: 11px;
+}
+
+.md-select-value .md-select-icon:after {
+	font-size: 21px !important;
 }
 
 .plans-desc-loc-m {

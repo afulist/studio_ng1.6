@@ -1,3 +1,20 @@
-<div>
-	left
-</div>
+<md-list class="loc-list">
+
+  <!-- regular location list -->
+  <md-list-item ng-click="$ctrl.selectLoc('最新')" class="loc-list-item">
+    <p class="loc-list-item-text">最新</p>
+  </md-list-item>
+  <md-divider></md-divider>
+  <md-list-item ng-repeat="loc in $ctrl.locations" ng-click="$ctrl.selectLoc(loc)" class="loc-list-item">
+    <p class="loc-list-item-text">{{ loc.name }}</p>
+  </md-list-item>
+  <md-divider></md-divider>
+  <md-list-item ng-repeat="loc in $ctrl.locations" ng-click="$ctrl.selectLoc(loc)" class="loc-list-item">
+    <p class="loc-list-item-text">{{ loc.name }}</p>
+  </md-list-item>
+  <md-divider></md-divider>
+  <md-list-item ng-repeat="loc in $ctrl.locations" ng-click="$ctrl.selectLoc(loc)" class="loc-list-item">
+    <p class="loc-list-item-text">{{ loc.name }}</p>
+  </md-list-item>
+
+</md-list>

@@ -31,7 +31,7 @@
         <md-item-template>
           <span ng-if="item.type==='currentText'" tabIndex="-1"  style="font-size: 19px;">
             <md-icon >search</md-icon>
-            {{$ctrl.selectedLoc.name}}地區: <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{$ctrl.searchText}}</span>
+            {{$ctrl.selectedLoc}}地區: <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{$ctrl.searchText}}</span>
           </span>
           <span ng-if="item.type!=='currentText'" md-highlight-text="$ctrl.searchText" md-highlight-flags="^i" style="font-size:19px;">{{item.display}}
           </span>
