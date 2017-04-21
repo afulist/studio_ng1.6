@@ -5,19 +5,25 @@ angular
 /** @ngInject */
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true).hashPrefix('!');
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/home/new');
 
   $stateProvider
 
   .state('home', {
-    url: '/home',
+    url: '/home/{locId}',
+    params: { // default params
+      locId: 'new'
+    },
     component: 'home',
     resolve: {
     }
   })
 
   .state('home-trip', {
-    url: '/home/{trip}',
+    url: '/home/{locId}/{trip}',
+    params: { // default params
+      locId: 'new'
+    },
     component: 'homeTrip',
     resolve: {
     }

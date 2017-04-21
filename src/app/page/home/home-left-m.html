@@ -1,3 +1,32 @@
 <md-sidenav class="md-sidenav-left all-bg" md-component-id="left" md-is-locked-open="false">
-	leftM
+
+  <div class="smooth-touch">
+    <md-content class="all-bg" flex="" layout-padding="">
+
+      <md-list class="loc-list" style="padding:2px;padding-right:3px;">
+
+        <!-- regular location list -->
+        <md-list-item ng-click="$ctrl.selectLoc('new', 'left')" class="loc-list-item">
+          <p class="loc-list-item-text">最新</p>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-list-item ng-repeat="loc in $ctrl.locations" ng-click="$ctrl.selectLoc(loc.locId, 'left')" class="loc-list-item">
+          <p class="loc-list-item-text">{{ loc.name }}</p>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-list-item ng-repeat="loc in $ctrl.locations" ng-click="$ctrl.selectLoc(loc.locId, 'left')" class="loc-list-item">
+          <p class="loc-list-item-text">{{ loc.name }}</p>
+        </md-list-item>
+        <md-divider></md-divider>
+        <md-list-item ng-repeat="loc in $ctrl.locations" ng-click="$ctrl.selectLoc(loc.locId, 'left')" class="loc-list-item">
+          <p class="loc-list-item-text">{{ loc.name }}</p>
+        </md-list-item>
+
+      </md-list>
+
+      <br><br><br><br><br><br><br><br><br><br><br>
+
+    </md-content>
+  </div>
+
 </md-sidenav>

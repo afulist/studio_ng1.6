@@ -6,7 +6,7 @@ angular
   });
 
 /** @ngInject */
-function HomeCenterController($log, mobileFeature) {
+function HomeCenterController($log, $state, mobileFeature) {
   var vm = this;
 
   // ==view data==
@@ -21,17 +21,28 @@ function HomeCenterController($log, mobileFeature) {
     {id: 5, name: '看最少天'}
     // { id: 1, name: '最多留言最前'}
   ];
-  vm.selectedSort = 3;
-  // vm.loc = '最新';
-  vm.loc = '台灣';
+  vm.selectedSort = 1;
+  vm.loc = getLocName($state.params.locId);
 
   // ==init func==
   vm.$onInit = function () {
-    // TODO-selectLoc:
-    // // TODO-load: on event to load plans
-    // var loadPlans = $rootScope.$on('selectLoc', function(event, args) {
-    //   vm.loc = args.loc.name;
-    // });
-    // $scope.$on('$destroy', loadPlans);
+    // TODO-load: on event to load plans
   };
+
+  // ==all func==
+  function getLocName(locId) {
+    if (locId === 'new') {
+      return '最新';
+    } else if (locId === 'tw') {
+      return '台灣';
+    } else if (locId === 'jp') {
+      return '日本';
+    } else if (locId === 'kr') {
+      return '韓國';
+    } else if (locId === 'tai') {
+      return '泰國';
+    } else if (locId) {
+      return '最新';
+    }
+  }
 }
