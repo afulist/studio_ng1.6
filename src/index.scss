@@ -8,6 +8,7 @@ html {
 
 body {
   background-color: #F1F1F1;
+  flex-direction: inherit !important;
 }
 
 home, home-trip, search, result,
@@ -21,11 +22,12 @@ myfavor, favor-trip, more {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
+  width: 100%;
 }
 
 .smooth-touch {
   width: 100%;
-  height: 100vh;
+  height: 100%; /* 100vh */
   float: left;
   overflow-y: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
