@@ -32,11 +32,11 @@ function HomeLeftController($log, $mdSidenav, $state) {
     if (menuId) {
       $mdSidenav(menuId).close().then(function () {
         // change content by loc in mobile
-        $state.go('home', {locId: locId});
+        $state.go('home', {locId: locId}, {reload: true});
       });
     } else {
       // change content by loc
-      $state.go('home', {locId: locId});
+      $state.go('home', {locId: locId}, {reload: true});
     }
   }
 
