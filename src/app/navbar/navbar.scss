@@ -63,30 +63,30 @@ md-input-container label {
 }
 
 acme-navbar md-select-value {
-    border-bottom-color: rgba(0, 0, 0, 0) !important;
-    color: rgba(0, 0, 0, 1) !important;
+  border-bottom-color: rgba(0, 0, 0, 0) !important;
+  color: rgba(0, 0, 0, 1) !important;
 }
 
 .md-select-value .md-select-icon {
-    margin-right: 4px !important;
-    margin-left: 0px !important;
-    margin-top: 4px !important;
+  margin-right: 4px !important;
+  margin-left: 0px !important;
+  margin-top: 4px !important;
 }
 
 default-theme, md-select-menu md-option {
-    color: rgb(63, 81, 181) !important;
+  color: rgb(63, 81, 181) !important;
 }
 
 default-theme, md-select-menu md-option:hover {
-    background-color: rgba(63, 81, 181, 0.2) !important;
+  background-color: rgba(63, 81, 181, 0.2) !important;
 }
 
 default-theme, md-select-menu md-option ._md-text {
-    color: rgba(0, 0, 0, 0.87) !important;
+  color: rgba(0, 0, 0, 0.87) !important;
 }
 
 default-theme, md-select-menu md-option[selected]  ._md-text {
-    color: rgb(63, 81, 181) !important;
+  color: rgb(63, 81, 181) !important;
 }
 
 /* search component: autocomplete function */
@@ -100,9 +100,9 @@ md-autocomplete {
 }
 
 md-autocomplete input:not(.md-input) {
-    font-size: 19px;
-/*    line-height: 40px;
-    height: 40px;*/
+  font-size: 19px;
+  /*line-height: 40px;
+  height: 40px;*/
 }
 
 .highlight {
@@ -110,7 +110,7 @@ md-autocomplete input:not(.md-input) {
 }
 
 .md-autocomplete-suggestions-container.md-default-theme, .md-autocomplete-suggestions-container li:hover, .md-autocomplete-suggestions-container.md-default-theme, .md-autocomplete-suggestions-container li.selected {
-    background: rgba(63, 81, 181, 0.2) !important;
+  background: rgba(63, 81, 181, 0.2) !important;
 }
 
 /* fix navSide slow performance in mobile */
