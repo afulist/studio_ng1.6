@@ -74,7 +74,7 @@ acme-navbar md-select-value {
 }
 
 default-theme, md-select-menu md-option {
-  color: rgb(63, 81, 181) !important;
+  color: rgb(63, 81, 181); /*!important*/
 }
 
 default-theme, md-select-menu md-option:hover {

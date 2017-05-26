@@ -1,20 +1,20 @@
 <div flex class="content-col">
   <!-- desc -->
   <div class="plans-desc">
-    <span hide-xs class="plans-desc-loc">{{homeCenter.loc}}的行程，共34個</span>
-    <md-input-container hide-xs class="sort-container" ng-hide="homeCenter.loc==='最新'">
+    <span hide-xs class="plans-desc-loc">共34個搜尋結果</span>
+    <md-input-container hide-xs class="sort-container">
       <label>&nbsp;</label>
-      <md-select ng-model="homeCenter.selectedSort" aria-label="plan sort" ng-model-options="{trackBy: '$value.id'}" placeholder="">
-        <md-option ng-value="{{sort}}" ng-repeat="sort in homeCenter.plansSort">
+      <md-select ng-model="$ctrl.selectedSort" aria-label="plan sort" ng-model-options="{trackBy: '$value.id'}" placeholder="">
+        <md-option ng-value="{{sort.id}}" ng-repeat="sort in $ctrl.plansSort">
           <span>{{sort.name}}</span>
         </md-option>
       </md-select>
     </md-input-container>
-    <div hide-gt-sm hide-sm class="plans-desc-loc-m">{{homeCenter.loc}}的行程，共2222個</div>
-    <md-input-container hide-gt-sm hide-sm class="sort-container-m" ng-hide="homeCenter.loc==='最新'">
+    <div hide-gt-sm hide-sm class="plans-desc-loc-m">共34個搜尋結果</div>
+    <md-input-container hide-gt-sm hide-sm class="sort-container-m">
       <label>&nbsp;</label>
-      <md-select ng-model="homeCenter.selectedSort" aria-label="plan sort" ng-model-options="{trackBy: '$value.id'}" placeholder="">
-        <md-option ng-value="{{sort}}" ng-repeat="sort in homeCenter.plansSort">
+      <md-select ng-model="$ctrl.selectedSort" aria-label="plan sort" ng-model-options="{trackBy: '$value.id'}" placeholder="">
+        <md-option ng-value="{{sort.id}}" ng-repeat="sort in $ctrl.plansSort">
           <span>{{sort.name}}</span>
         </md-option>
       </md-select>
@@ -38,7 +38,7 @@
       </md-card-title-text>
       <md-card-title-media>
         <a ui-sref="mainLayout.more({user:999})">
-          <md-button class="md-fab big-fab hide-xs" aria-label="user page" ng-style="homeCenter.userImage">
+          <md-button class="md-fab big-fab hide-xs" aria-label="user page" ng-style="$ctrl.userImage">
             <md-tooltip style="">
               使用者
             </md-tooltip>
@@ -60,11 +60,11 @@
       <!-- mobile action -->
       <!-- use img tag because of md-icon bug in mobile -->
       <md-button hide-gt-sm hide-sm class="md-icon-button primary-btn" aria-label="thumb up">
-        <img ng-class="{'icon-in-btn-m': homeCenter.ios==false}" class="" src="../assets/svg/icon_thumb.svg">
+        <img ng-class="{'icon-in-btn-m': $ctrl.ios==false}" class="" src="../assets/svg/icon_thumb.svg">
       </md-button>
       <span hide-gt-sm hide-sm class="icon-m-count-l">1234444</span>
       <md-button hide-gt-sm hide-sm class="md-icon-button primary-btn" aria-label="favorite">
-        <img ng-class="{'icon-in-btn-m': homeCenter.ios==false}" src="../assets/svg/icon_favor.svg">
+        <img ng-class="{'icon-in-btn-m': $ctrl.ios==false}" src="../assets/svg/icon_favor.svg">
       </md-button>
       <span hide-gt-sm hide-sm class="icon-m-count-r">1234</span>
     </md-card-actions>
@@ -86,7 +86,7 @@
       </md-card-title-text>
       <md-card-title-media>
         <a ui-sref="mainLayout.more({user:999})">
-          <md-button class="md-fab big-fab hide-xs" aria-label="user page" ng-style="homeCenter.userImage">
+          <md-button class="md-fab big-fab hide-xs" aria-label="user page" ng-style="$ctrl.userImage">
             <md-tooltip style="">
               使用者
             </md-tooltip>
@@ -108,11 +108,11 @@
       <!-- mobile action -->
       <!-- use img tag because of md-icon bug in mobile -->
       <md-button hide-gt-md hide-md class="md-icon-button primary-btn" aria-label="thumb up">
-        <img ng-class="{'icon-in-btn-m': homeCenter.ios==false}" src="../assets/svg/icon_thumb.svg">
+        <img ng-class="{'icon-in-btn-m': $ctrl.ios==false}" src="../assets/svg/icon_thumb.svg">
       </md-button>
       <span hide-gt-md hide-md class="icon-m-count-l">1234444</span>
       <md-button hide-gt-md hide-md class="md-icon-button primary-btn" aria-label="favorite">
-        <img ng-class="{'icon-in-btn-m': homeCenter.ios==false}" src="../assets/svg/icon_favor.svg">
+        <img ng-class="{'icon-in-btn-m': $ctrl.ios==false}" src="../assets/svg/icon_favor.svg">
       </md-button>
       <span hide-gt-md hide-md class="icon-m-count-r">1234</span>
     </md-card-actions>
@@ -134,7 +134,7 @@
       </md-card-title-text>
       <md-card-title-media>
         <a ui-sref="mainLayout.more({user:999})">
-          <md-button class="md-fab big-fab hide-xs" aria-label="user page" ng-style="homeCenter.userImage">
+          <md-button class="md-fab big-fab hide-xs" aria-label="user page" ng-style="$ctrl.userImage">
             <md-tooltip style="">
               使用者
             </md-tooltip>

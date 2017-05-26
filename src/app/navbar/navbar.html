@@ -10,7 +10,7 @@
     <md-whiteframe class="md-whiteframe-2dp search-select" layout layout-align="center center">
       <md-input-container>
         <md-select class="md-search-loc" ng-model="$ctrl.selectedLoc" aria-label="search-loc" ng-model-options="{trackBy: '$value.id'}" placeholder=""><!-- 搜尋地區 -->
-          <md-option ng-value="loc.name" ng-repeat="loc in $ctrl.locations">
+          <md-option ng-value="loc" ng-repeat="loc in $ctrl.locations">
             <span>{{loc.name}}</span>
           </md-option>
         </md-select>
@@ -31,7 +31,7 @@
         <md-item-template>
           <span ng-if="item.type==='currentText'" tabIndex="-1"  style="font-size: 19px;">
             <md-icon >search</md-icon>
-            {{$ctrl.selectedLoc}}地區: <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{$ctrl.searchText}}</span>
+            {{$ctrl.selectedLoc.name}}地區: <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{$ctrl.searchText}}</span>
           </span>
           <span ng-if="item.type!=='currentText'" md-highlight-text="$ctrl.searchText" md-highlight-flags="^i" style="font-size:19px;">{{item.display}}
           </span>

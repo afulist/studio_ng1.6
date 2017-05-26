@@ -22,7 +22,7 @@ function HomeCenterController($log, $state, mobileFeature) {
     // { id: 1, name: '最多留言最前'}
   ];
   vm.selectedSort = 1;
-  vm.loc = getLocName($state.params.locId);
+  vm.locName = getLocName($state.params.locId);
 
   // ==init func==
   vm.$onInit = function () {

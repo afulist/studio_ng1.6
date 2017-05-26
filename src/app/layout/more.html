@@ -6,8 +6,12 @@
 	<!-- content -->
 	<md-content layout="column" id="content" flex class="md-padding all-bg">
 	  <div layout="row" id="top">
+	    <!-- desktop side -->
+	    <more-left flex="20" hide-sm hide-xs ng-hide="main.hideLeft"  class="content-col"></more-left>
 	    <!-- desktop & mobile content -->
 	    <more-center flex></more-center>
+	    <!-- desktop side -->
+	    <more-right flex="25" hide-sm hide-xs class="content-col"></more-right>
 	  </div>
 	</md-content>
 </div>

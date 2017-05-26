@@ -37,7 +37,7 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
   })
 
   .state('result', {
-    url: '/result/{location}/{keyword}',
+    url: '/result/{locId}/{keyword}',
     component: 'result',
     resolve: {
     }

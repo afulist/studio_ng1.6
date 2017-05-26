@@ -1,180 +1,38 @@
-<div flex class="content-col">
-  <!-- desc -->
-  <div class="plans-desc">
-    <span hide-xs class="plans-desc-loc">{{homeCenter.loc}}的行程，共34個</span>
-    <md-input-container hide-xs class="sort-container" ng-hide="homeCenter.loc==='最新'">
-      <label>&nbsp;</label>
-      <md-select ng-model="homeCenter.selectedSort" aria-label="plan sort" ng-model-options="{trackBy: '$value.id'}" placeholder="">
-        <md-option ng-value="{{sort}}" ng-repeat="sort in homeCenter.plansSort">
-          <span>{{sort.name}}</span>
+<div style="margin-left:10px;margin-top:10px;">
+  <!-- search location selector -->
+  <strong style="font-size:17px;">地區</strong>
+  <!-- search location selector -->
+  <md-whiteframe class="md-whiteframe-2dp search-select-m" layout layout-align="center center">
+    <md-input-container>
+      <md-select class="md-search-loc" ng-model="$ctrl.selectedLoc" aria-label="search-loc" ng-model-options="{trackBy: '$value.id'}" placeholder=""><!-- 搜尋地區 -->
+        <md-option ng-value="loc.name" ng-repeat="loc in $ctrl.locations">
+          <span>{{loc.name}}</span>
         </md-option>
       </md-select>
     </md-input-container>
-    <div hide-gt-sm hide-sm class="plans-desc-loc-m">{{homeCenter.loc}}的行程，共2222個</div>
-    <md-input-container hide-gt-sm hide-sm class="sort-container-m" ng-hide="homeCenter.loc==='最新'">
-      <label>&nbsp;</label>
-      <md-select ng-model="homeCenter.selectedSort" aria-label="plan sort" ng-model-options="{trackBy: '$value.id'}" placeholder="">
-        <md-option ng-value="{{sort}}" ng-repeat="sort in homeCenter.plansSort">
-          <span>{{sort.name}}</span>
-        </md-option>
-      </md-select>
-    </md-input-container>
-  </div>
+  </md-whiteframe>
 
-  <!-- plans -->
-  <md-card>
-    <md-card-title class="card-title">
-      <md-card-title-text>
-        <span class="md-headline">
-          <a ui-sref="tripLayout.home({plan:456})">
-              <strong>5天&nbsp;&nbsp;[日本]&nbsp;大阪、京都</strong>
-              <br>
-              <span class="headline-small">超充實瘋狂東京快閃25小時濃縮精華遊</span>
-          </a>
+  <!-- search keyword autocomplete -->
+  <br><br><strong style="font-size:17px;">關鍵字</strong>
+  <form ng-submit="$ctrl.search()">
+    <md-autocomplete
+        style="width:250px;margin-top:7px;"
+        placeholder="行程名稱、城市"
+        md-min-length="0"
+        md-autoselect="true"
+        md-search-text="$ctrl.searchText"
+        md-selected-item="$ctrl.selectedItem"
+        md-selected-item-change="$ctrl.selectedItemChange(item)"
+        md-items="item in $ctrl.querySuggsetion($ctrl.searchText)"
+        md-item-text="item.display">
+      <md-item-template>
+        <span ng-if="item.type==='currentText'" tabIndex="-1"  style="font-size: 19px;">
+          <md-icon >search</md-icon>
+          <span md-highlight-text="$ctrl.searchText" md-highlight-flags="^i">{{$ctrl.searchText}}</span>
         </span>
-        <span class="md-subhead">
-          2015/7/8<span hide-gt-sm hide-sm>&nbsp;由<a ui-sref="mainLayout.more({user:999})">afulist</a></span>更新
+        <span ng-if="item.type!=='currentText'" md-highlight-text="$ctrl.searchText" md-highlight-flags="^i" style="font-size:19px;">{{item.display}}
         </span>
-      </md-card-title-text>
-      <md-card-title-media>
-        <a ui-sref="mainLayout.more({user:999})">
-          <md-button class="md-fab big-fab hide-xs" aria-label="user page" ng-style="homeCenter.userImage">
-            <md-tooltip style="">
-              使用者
-            </md-tooltip>
-            <md-icon></md-icon>
-          </md-button>
-        </a>
-      </md-card-title-media>
-    </md-card-title>
-    <md-card-actions layout="row" layout-align="end center">
-      <!-- desktop action -->
-      <md-button hide-xs class="primary-btn" title="讚">
-        <md-icon class="icon-in-btn">thumb_up</md-icon>
-        <span class="primary-btn-text icon-count">77777111119</span>
-      </md-button>
-      <md-button hide-xs class="primary-btn" title="收藏">
-        <md-icon class="icon-in-btn">favorite</md-icon>
-        <span class="primary-btn-text icon-count">999</span>
-      </md-button>
-      <!-- mobile action -->
-      <!-- use img tag because of md-icon bug in mobile -->
-      <md-button hide-gt-sm hide-sm class="md-icon-button primary-btn" aria-label="thumb up">
-        <img ng-class="{'icon-in-btn-m': homeCenter.ios==false}" class="" src="../assets/svg/icon_thumb.svg">
-      </md-button>
-      <span hide-gt-sm hide-sm class="icon-m-count-l">1234444</span>
-      <md-button hide-gt-sm hide-sm class="md-icon-button primary-btn" aria-label="favorite">
-        <img ng-class="{'icon-in-btn-m': homeCenter.ios==false}" src="../assets/svg/icon_favor.svg">
-      </md-button>
-      <span hide-gt-sm hide-sm class="icon-m-count-r">1234</span>
-    </md-card-actions>
-  </md-card>
-
-  <md-card>
-    <md-card-title class="card-title">
-      <md-card-title-text>
-        <span class="md-headline">
-          <a ui-sref="tripLayout.home({plan:123})">
-              <strong>5天&nbsp;&nbsp;[日本]&nbsp;大阪、京都</strong>
-              <br>
-              <span class="headline-small">超充實瘋狂東京快閃25小時濃縮精華遊</span>
-          </a>
-        </span>
-        <span class="md-subhead">
-          2015/7/8<span hide-gt-md hide-md>&nbsp;由<a ui-sref="mainLayout.more({user:999})">afulist</a></span>更新
-        </span>
-      </md-card-title-text>
-      <md-card-title-media>
-        <a ui-sref="mainLayout.more({user:999})">
-          <md-button class="md-fab big-fab hide-xs" aria-label="user page" ng-style="homeCenter.userImage">
-            <md-tooltip style="">
-              使用者
-            </md-tooltip>
-            <md-icon></md-icon>
-          </md-button>
-        </a>
-      </md-card-title-media>
-    </md-card-title>
-    <md-card-actions layout="row" layout-align="end center">
-      <!-- desktop action -->
-      <md-button hide-sm hide-xs class="primary-btn" title="讚">
-        <md-icon class="icon-in-btn">thumb_up</md-icon>
-        <span class="primary-btn-text icon-count">77777111119</span>
-      </md-button>
-      <md-button hide-sm hide-xs class="primary-btn" title="收藏">
-        <md-icon class="icon-in-btn">favorite</md-icon>
-        <span class="primary-btn-text icon-count">999</span>
-      </md-button>
-      <!-- mobile action -->
-      <!-- use img tag because of md-icon bug in mobile -->
-      <md-button hide-gt-md hide-md class="md-icon-button primary-btn" aria-label="thumb up">
-        <img ng-class="{'icon-in-btn-m': homeCenter.ios==false}" src="../assets/svg/icon_thumb.svg">
-      </md-button>
-      <span hide-gt-md hide-md class="icon-m-count-l">1234444</span>
-      <md-button hide-gt-md hide-md class="md-icon-button primary-btn" aria-label="favorite">
-        <img ng-class="{'icon-in-btn-m': homeCenter.ios==false}" src="../assets/svg/icon_favor.svg">
-      </md-button>
-      <span hide-gt-md hide-md class="icon-m-count-r">1234</span>
-    </md-card-actions>
-  </md-card>
-
-  <md-card>
-    <md-card-title class="card-title">
-      <md-card-title-text>
-        <span class="md-headline">
-          <a ui-sref="tripLayout.home({plan:123})">
-              <strong>5天 日本(大阪、京都)</strong>
-              <br>
-              <span class="headline-small">超充實瘋狂東京快閃25小時濃縮精華遊</span>
-          </a>
-        </span>
-        <span class="md-subhead">
-          2015/7/8<span hide-gt-md hide-md>&nbsp;由<a ui-sref="mainLayout.more({user:999})">afulist</a></span>更新
-        </span>
-      </md-card-title-text>
-      <md-card-title-media>
-        <a ui-sref="mainLayout.more({user:999})">
-          <md-button class="md-fab big-fab hide-xs" aria-label="user page" ng-style="homeCenter.userImage">
-            <md-tooltip style="">
-              使用者
-            </md-tooltip>
-            <md-icon></md-icon>
-          </md-button>
-        </a>
-      </md-card-title-media>
-    </md-card-title>
-    <md-card-actions layout="row" layout-align="end center">
-      <md-button hide-sm hide-xs class="primary-btn">
-        <md-icon class="icon-in-btn">thumb_up</md-icon>
-        <span class="primary-btn-text">
-          <!-- hide if opt and in mobile -->
-          24
-        </span>
-      </md-button>
-      <md-button hide-sm hide-xs class="primary-btn">
-        <md-icon class="icon-in-btn">favorite</md-icon>
-        <span class="primary-btn-text">
-          <!-- hide if opt and in mobile -->
-          5
-        </span>
-      </md-button>
-      <md-button hide-sm hide-xs class="primary-btn">
-        <md-icon class="icon-in-btn">favorite</md-icon>
-        <span class="primary-btn-text">
-          <!-- hide if opt and in mobile -->
-          5
-        </span>
-      </md-button>
-      <md-button hide-gt-md hide-md class="md-icon-button" aria-label="More">
-        <md-icon class="icon-in-btn">favorite</md-icon>
-      </md-button>
-      <md-button hide-gt-md hide-md class="md-icon-button" aria-label="More">
-        <md-icon class="icon-in-btn">favorite</md-icon>
-      </md-button>
-    </md-card-actions>
-  </md-card>
-
-	<div>
-	<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111<br>111
-	</div>
+      </md-item-template>
+    </md-autocomplete>
+  </form>
 </div>

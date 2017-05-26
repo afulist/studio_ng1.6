@@ -1,8 +1,8 @@
 <div flex class="content-col">
   <!-- desc -->
   <div class="plans-desc">
-    <span hide-xs class="plans-desc-loc">{{$ctrl.loc}}的行程，共34個</span>
-    <md-input-container hide-xs class="sort-container" ng-hide="$ctrl.loc==='最新'">
+    <span hide-xs class="plans-desc-loc">{{$ctrl.locName}}的行程，共34個</span>
+    <md-input-container hide-xs class="sort-container" ng-hide="$ctrl.locName==='最新'">
       <label>&nbsp;</label>
       <md-select ng-model="$ctrl.selectedSort" aria-label="plan sort" ng-model-options="{trackBy: '$value.id'}" placeholder="">
         <md-option ng-value="{{sort.id}}" ng-repeat="sort in $ctrl.plansSort">
@@ -10,8 +10,8 @@
         </md-option>
       </md-select>
     </md-input-container>
-    <div hide-gt-sm hide-sm class="plans-desc-loc-m">{{$ctrl.loc}}的行程，共2222個</div>
-    <md-input-container hide-gt-sm hide-sm class="sort-container-m" ng-hide="$ctrl.loc==='最新'">
+    <div hide-gt-sm hide-sm class="plans-desc-loc-m">{{$ctrl.locName}}的行程，共2222個</div>
+    <md-input-container hide-gt-sm hide-sm class="sort-container-m" ng-hide="$ctrl.locName==='最新'">
       <label>&nbsp;</label>
       <md-select ng-model="$ctrl.selectedSort" aria-label="plan sort" ng-model-options="{trackBy: '$value.id'}" placeholder="">
         <md-option ng-value="{{sort.id}}" ng-repeat="sort in $ctrl.plansSort">
