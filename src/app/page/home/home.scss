@@ -30,12 +30,14 @@ md-list-item.md-no-proxy.md-button, md-list-item .md-no-style.md-button {
 
 .folder-list-item-text {
 	@extend .loc-list-item-text;
-	padding-right: 65px; /* for secondery space */
+	width: 80px;
+	padding-right: 0px; /* for secondery space */
 }
 
 .folder-list-item-text-m {
 	@extend .loc-list-item-text;
-	padding-right: 25px; /* for secondery space */
+	width: 118px;
+	padding-right: 0px; /* for secondery space */
 }
 
 
@@ -50,10 +52,10 @@ md-list-item.md-no-proxy.md-button, md-list-item ._md-no-style.md-button {
 
 /* item editor icon */
 .md-secondary {
-	margin-top: -3px;
+	/*margin-top: -3px;*/
 }
 
-._md-secondary-container {
+.md-secondary-container {
 	margin-right: -15px !important;
 }
 

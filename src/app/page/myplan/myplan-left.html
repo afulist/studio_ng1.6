@@ -1,3 +1,28 @@
-<div>
-	left
-</div>
+<md-list class="loc-list">
+
+  <!-- test folder list -->
+  <md-list-item ng-repeat="loc in $ctrl.locations" ng-click="$ctrl.test()" class="loc-list-item">
+    <p class="folder-list-item-text">{{ loc.name }}</p>
+    <md-icon ng-click="$ctrl.test()" class="md-secondary" aria-label="create">create</md-icon>
+    <md-icon ng-click="$ctrl.test()" class="md-secondary" aria-label="delete">delete</md-icon>
+  </md-list-item>
+
+  <md-divider></md-divider>
+  <!-- folder list -->
+  <md-list-item ng-repeat="loc in $ctrl.locations" ng-click="test()" class="loc-list-item">
+    <p class="folder-list-item-text-m">{{ loc.name }}</p>
+    <!-- editor menu -->
+    <md-menu ng-click="" class="md-secondary">
+      <md-icon md-menu-origin aria-label="location" tabindex="-1" ng-click="$mdOpenMenu($event)" style="margin-top:-3px;">create</md-icon>
+      <!-- menu item -->
+      <md-menu-content width="2">
+        <md-menu-item ng-repeat="item in ['編輯', '刪除']">
+          <md-button ng-click="test($index)" class="primary-btn">
+            <span md-menu-align-target class="primary-btn-text"> {{item}} </span>
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+  </md-list-item>
+
+</md-list>
