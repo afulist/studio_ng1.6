@@ -36,10 +36,9 @@
     }
 
     // click nav item
-    function listItemClick(item) {
+    function listItemClick(selectState) {
       // close sheet
-      $log.debug('listItemClick');
-      $mdBottomSheet.hide(item);
+      $mdBottomSheet.hide(selectState);
       // after state change, scroll to top has bug if no $timeout here
       // $timeout(function function_name(argument) { // eslint-disable-line
       //   document.getElementById('top').scrollIntoView(true); // eslint-disable-line

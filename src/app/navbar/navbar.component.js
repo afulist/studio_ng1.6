@@ -78,8 +78,15 @@ function NavbarController($transitions, $log, $mdSidenav, $mdBottomSheet, $state
       templateUrl: 'app/navbar/bottom-sheet.html',
       controller: 'BottomSheetController',
       controllerAs: 'bvm'
-    }).then(function (clickedItem) {
-      $log.debug(clickedItem);
+    }).then(function (selectState) {
+      // change page
+      $timeout(function () {
+        if (selectState === 'more') {
+          $state.go(selectState, {user: 123});
+        } else {
+          $state.go(selectState);
+        }
+      }, 250);
     });
   }
 

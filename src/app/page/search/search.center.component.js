@@ -11,13 +11,13 @@ function SearchCenterController($log, $timeout, $state) {
 
   // ==view data==
   vm.locations = [
-    {id: 1, name: '全部'},
-    {id: 2, name: '台灣'},
-    {id: 3, name: '東南亞'}, {id: 6, name: '東東南亞'}, {id: 7, name: '東南亞東東'},
-    {id: 5, name: 'bbbbbbbbbbbbbbbbbbbbbbbb111'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}, {id: 4, name: 'aaaaaaaaaaaaa'}
+    {id: 1, locId: 'all', name: '全部'},
+    {id: 2, locId: 'tw', name: '台灣'},
+    {id: 3, locId: 'jp', name: '日本'}, {id: 6, locId: 'kr', name: '韓國韓國'}, {id: 7, locId: 'tai', name: '泰國泰國泰國'},
+    {id: 5, locId: 'bb', name: 'bbbbbbbbbbbbbbbbbbbbbbbb111'}, {id: 4, locId: 'aa', name: 'aaaaaaaaaaaaa'}, {id: 4, locId: 'aa', name: 'aaaaaaaaaaaaa'}, {id: 4, locId: 'aa', name: 'aaaaaaaaaaaaa'}, {id: 4, locId: 'aa', name: 'aaaaaaaaaaaaa'}, {id: 4, locId: 'aa', name: 'aaaaaaaaaaaaa'}, {id: 4, locId: 'aa', name: 'aaaaaaaaaaaaa'}, {id: 4, locId: 'aa', name: 'aaaaaaaaaaaaa'}, {id: 4, locId: 'aa', name: 'aaaaaaaaaaaaa'}, {id: 4, locId: 'aa', name: 'aaaaaaaaaaaaa'}, {id: 4, locId: 'aa', name: 'aaaaaaaaaaaaa'}, {id: 4, locId: 'aa', name: 'aaaaaaaaaaaaa'}
   ];
   vm.searchText = '';
-  vm.selectedLoc = '台灣';
+  vm.selectedLoc = vm.locations[1];
   vm.suggsetionKeyword = loadSuggsetion();
 
   // ==view func==
@@ -66,7 +66,7 @@ function SearchCenterController($log, $timeout, $state) {
   // search keyword on selected
   function selectedItemChange(item) {
     if (item) { // prevent backspace trigger search
-      $log.debug('Item changed to ', item, 'with ', vm.selectedLoc);
+      $log.debug('Item changed to ', item, 'with ', vm.selectedLoc.name);
       // scroll to top
       // document.getElementById('top').scrollIntoView(true); // eslint-disable-line
       // delay to blur input for routing change to prev page
@@ -77,7 +77,7 @@ function SearchCenterController($log, $timeout, $state) {
         }
         // TODO-search: storing keyword
         // change page
-        $state.go('result', {location: vm.selectedLoc, keyword: item.value});
+        $state.go('result', {locId: vm.selectedLoc.locId, keyword: item.value});
       }, 150);
     }
   }
