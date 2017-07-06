@@ -13,7 +13,7 @@ angular
   });
 
 /** @ngInject */
-function NavbarController($transitions, $log, $mdSidenav, $mdBottomSheet, $state, $timeout) {
+function NavbarController($transitions, $log, $mdSidenav, $mdBottomSheet, $state, $timeout, firebase) {
   var vm = this;
 
   // ==view data==
@@ -34,6 +34,8 @@ function NavbarController($transitions, $log, $mdSidenav, $mdBottomSheet, $state
   vm.showBottomSheet = showBottomSheet;
   vm.querySuggsetion = querySuggsetion;
   vm.selectedItemChange = selectedItemChange;
+  vm.login = login;
+  vm.logout = logout;
 
   // ==init func==
   vm.$onInit = function () {
@@ -159,5 +161,24 @@ function NavbarController($transitions, $log, $mdSidenav, $mdBottomSheet, $state
         $state.go('result', {locId: vm.selectedLoc.locId, keyword: item.value});
       }, 150);
     }
+  }
+
+  // TODO-test: login with fb
+  function login() {
+    var provider = new firebase.auth.FacebookAuthProvider();
+    provider.addScope('email');
+    provider.setCustomParameters({ // eslint-disable-line
+      'locale': 'zh_TW'
+    });
+    firebase.auth().signInWithRedirect(provider);
+  }
+
+  // TODO-test: logout with fb
+  function logout() {
+    firebase.auth().signOut().then(function () {
+      $log.debug('Sign-out successful.');
+    }).catch(function (error) {
+      $log.debug('An error happened.' + error);
+    });
   }
 }
