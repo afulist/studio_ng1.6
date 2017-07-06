@@ -48,7 +48,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-aria.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-messages.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
 
   <!-- Firebase -->
   <!-- @if ENV='dev' -->
@@ -58,10 +58,11 @@
       apiKey: "AIzaSyAMedjZ0QWUPwTpsoPZGFwxtKmBx5HvkHQ",
       authDomain: "pytrip-dev.firebaseapp.com",
       databaseURL: "https://pytrip-dev.firebaseio.com",
+      projectId: "pytrip-dev",
       storageBucket: "pytrip-dev.appspot.com",
       messagingSenderId: "44438832557"
     };
-    firebase.initializeApp(config);
+    var firebaseApp = firebase.initializeApp(config)
   </script>
   <!-- @endif -->
   <!-- @if ENV='stage' !>
@@ -70,11 +71,11 @@
     var config = {
       apiKey: "AIzaSyBThxHzk1EqvFLt82G50csKrtLMxjvlEY8",
       authDomain: "pytrip-stage.firebaseapp.com",
-      databaseURL: "https://pytrip-stage.firebaseio.com",
+      databaseURL: "https://pytrip2017.firebaseio.com",
       storageBucket: "pytrip-stage.appspot.com",
       messagingSenderId: "996809880697"
     };
-    firebase.initializeApp(config);
+    var firebaseApp = firebase.initializeApp(config);
   </script>
   <!-- @endif -->
   <!-- @if ENV='prod' !>
@@ -87,7 +88,7 @@
       storageBucket: "firebase-pytrip.appspot.com",
       messagingSenderId: "652633957061"
     };
-    firebase.initializeApp(config);
+    var firebaseApp = firebase.initializeApp(config);
   </script>
   <!-- @endif -->
 
